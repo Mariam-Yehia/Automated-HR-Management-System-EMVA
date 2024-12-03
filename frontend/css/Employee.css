@@ -1,0 +1,733 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Dubai;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(gainsboro, gainsboro);
+}
+
+
+.full {
+    font-variation-settings:
+        'FILL' 1,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+/* container start */
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: gainsboro;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 5px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1),
+        0 0 10px rgba(0, 0, 0, .2),
+        0 0 15px rgba(0, 0, 0, .2);
+    padding: 20px;
+    display: inline-flex;
+    gap: 20px;
+    overflow: auto;
+}
+
+.container .right {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container .right .top {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+}
+
+.container .right .top .nav {
+    position: relative;
+    display: flex;
+
+    gap: 15px;
+}
+.container .right .top .nav .logo img {
+    width: 100px;
+    cursor: pointer;
+    margin: 0px 0;
+    position: absolute;
+    top: 0px;
+    left: 5px;
+}
+.container .right .top .nav h2 {
+    color: white;
+    font-size: 1.4em;
+    cursor: pointer;
+}
+.container .right .top .user {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.container .right .top .user button {
+    position: relative;
+    right: -950px;
+    border-radius: 25px; 
+    padding: 10px 20px; 
+    background-color: navy;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+
+}
+
+.container .right main {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 90px);
+    display: grid;
+    gap: 20px;
+}
+
+.container .right main .taskpage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: rgba(255, 255, 255, 0.5) 35px 35px 68px 0px,
+        inset rgba(255, 255, 255, 0.6) -8px -8px 16px 0px,
+        inset rgb(255, 255, 255) 0px 11px 28px 0px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    grid-row: 1/6;
+    grid-column: 1/4;
+}
+
+.container .right main .feedback {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: rgba(255, 255, 255, 0.5) 35px 35px 68px 0px,
+        inset rgba(255, 255, 255, 0.6) -8px -8px 16px 0px,
+        inset rgb(255, 255, 255) 0px 11px 28px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    grid-row: 6 / 6;
+    grid-column: 1 / 4;
+    padding: 20px;
+    gap: 5px;
+    overflow-x: scroll;
+    height: 300px;
+}
+
+.container .right main .feedback .feedback .Head {
+    position: relative;
+    width: 100%;
+    height: 30px;
+}
+
+.container .right main .feedback .feedback .Head h2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    line-height: 18px;
+    color:navy;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.container .right main .feedback .feedbackUser {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.container .right main .messages .feedbackUser h2 {
+    position: relative;
+    color: navy;
+    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 18px;
+}
+
+
+
+
+/* tasks///////////////// */
+
+
+.taskpage .container {
+    padding: 20px;
+    background-color: whitesmoke;
+    box-shadow: 3px 3px 20px white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+
+}
+
+
+.container header .filterEntries {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filterEntries .entries {
+    color: navy;
+}
+
+.filterEntries .entries select {
+    padding: 7px 10px;
+    border: 1px solid;
+    color: navy;
+    background: whitesmoke;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+.filterEntries .entries select {
+    padding: 5px 10px;
+}
+
+
+
+.container header .addTaskBtn {
+    margin-bottom: 15px;
+}
+
+header .addTaskBtn button {
+    padding: 9px 14px;
+    color: navy;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    pointer-events: auto;
+    outline: none;
+    border: 1px solid navy;
+    background: whitesmoke;
+    border-radius: 5px;
+}
+
+.addTaskBtn button:hover {
+    background: gainsboro;
+}
+
+
+.addTaskBtn:hover {
+    background: navy;
+    color: white;
+}
+
+
+.addTaskBtn {
+    padding: 9px 14px;
+    color: navy;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    pointer-events: auto;
+    outline: none;
+    border: 1px solid navy;
+    background: whitesmoke;
+    border-radius: 5px;
+}
+
+
+
+
+table .heading {
+    background: gainsboro;
+    background: transparent;
+    color: navy;
+}
+
+table .heading th:hover {
+    background: whitesmoke;
+    transition: 0.3s;
+}
+
+table tr th,
+table tr td {
+    padding: 3px 15px;
+    color: navy;
+    vertical-align: middle;
+}
+
+
+
+table tr:hover {
+    cursor: pointer;
+    background: gainsboro;
+}
+
+table tr td {
+    border-bottom: 1px solid navy;
+    padding-bottom: 3px;
+}
+
+table tbody tr:first-child td {
+    border-top: 1px solid navy;
+}
+
+table tbody tr:nth-child(odd,even) {
+    background: whitesmoke;
+}
+
+
+
+table tr td {
+    font-size: 15px;
+}
+
+table td button {
+    margin: 0 3px;
+    padding: 5px;
+    width: 35px;
+    background: gainsboro;
+    color: navy;
+    font-size: 16px;
+    cursor: pointer;
+    pointer-events: auto;
+    outline: none;
+    border: 1px solid navy;
+}
+
+.filterEntries .filter {
+    display: flex;
+    align-items: center;
+}
+
+.filter label {
+    color: navy;
+    margin-right: 5px;
+}
+
+
+.filter input:focus {
+    border-color: navy;
+}
+
+
+.container footer {
+    position: relative;
+    bottom: -1000px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container footer span {
+    color: navy;
+}
+
+footer .pagination {
+    display: flex;
+}
+
+
+footer .pagination button {
+    width: 40px;
+    padding: 5px 0;
+    color: navy;
+    background: transparent;
+    font-size: 16px;
+    cursor: pointer;
+    pointer-events: auto;
+    outline: none;
+    border: 1px solid gainsboro;
+    border-left: none;
+    margin: 0;
+}
+
+.pagination button:first-child {
+    width: 85px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-left: 1px solid navy;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.pagination button:last-child {
+    width: 85px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.pagination button.active,
+.pagination button:hover {
+    background: gainsboro;
+}
+
+
+.pagination button.act:first-child {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.pagination button.act:last-child {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+table tr .empty {
+    padding: 6px;
+    background: ghostwhite;
+}
+
+
+
+#lightboxContainer {
+
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+}
+
+#lightbox {
+
+    width: 800px;
+    /* height: 600px; */
+    background-color: white;
+
+
+}
+
+#lightbox i {
+    cursor: pointer;
+}
+.fileholder {
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 5px rgb(50, 2, 128);
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 50px;
+    margin-top: 15px;
+
+}
+
+
+.fileholder .upload {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(50, 2, 128);
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+    display: none;
+}
+
+.fileholder:hover .upload {
+    display: flex;
+}
+
+.fileholder .upload input {
+    display: none;
+}
+
+.fileholder .upload i {
+    color: #fff;
+    font-size: 35px;
+    font-weight: 300;
+}
+
+.fileholder .span {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.sqrBtn {
+
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 30%;
+}
+
+.icon-btn {
+    color: white;
+    display: none;
+}
+
+.sqrBtn:focus-within {
+
+    width: 30px;
+    height: 30px;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    border-radius: 30%;
+}
+
+.sqrBtn:focus-within .icon-btn {
+
+    display: inline-block;
+
+
+}
+.employee-container {
+    background-color: rgb(248, 226, 226); 
+    border-radius: 10px; 
+    padding: 15px; 
+    margin-bottom: 10px; 
+    width: 150px;
+}
+
+.employee-entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.employee-details {
+    text-align: center; 
+}
+
+.employee-details p {
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive; 
+    color: navy; 
+}
+.employee-details button{
+    margin-bottom: 5px;
+}
+.container-feedback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    padding: 20px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 2; 
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  fieldset {
+    margin-bottom: 20px;
+    border: none;
+    text-align: center;
+  }
+  
+  legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+    text-align: center;
+    color: navy;
+  }
+  
+  p {
+    color: black;
+  }
+  
+  .star-rating {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    flex-direction: row-reverse; /* Reverse the order of stars */
+  }
+  
+  .star-rating input[type="radio"] {
+    display: none;
+  }
+  
+  .star-rating:not(:checked) > input {
+    position: absolute;
+    top: -9999px;
+  }
+  
+  .star-rating:not(:checked) > label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+  }
+  
+  .star-rating:not(:checked) > label:before {
+    content: '★ ';
+  }
+  
+  .star-rating > input:checked ~ label,
+  .star-rating > input:checked + label:hover,
+  .star-rating > input:checked ~ label:hover,
+  .star-rating > label:hover ~ input:checked ~ label {
+    color: #ffc700;
+  }
+  
+  .star-rating > input:checked + label:hover,
+  .star-rating > input:checked ~ label:hover,
+  .star-rating > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+  }
+  button {
+    background-color: navy;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px; 
+  }
+  
+  button:hover {
+    background-color: rgb(0, 0, 99);
+  }
+#survey-form-him {
+    display: none; 
+}
+#survey-form-oth{
+    display: none;
+}
+#overTimeContainer {
+
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+}
+.box{
+    width: 400px;
+    height: 180px;
+    background-color: white;
+    position: absolute;
+    top: 3%;
+    left: 35%;
+  
+}
+#sentimentContainer {
+
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.596);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+}
+
+.sentiment {
+
+    width: 800px;
+    height: 400px;
+    /* position: absolute; */
+    margin: auto;
+    background-color: white;
+
+
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: navy;
+  }
+
+form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  fieldset {
+    margin-bottom: 20px;
+    border: none;
+    text-align: center;
+  }
+  
+  legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  textarea{
+    border-color: white;
+  }
+  
+  
+  button {
+    background-color: navy;
+    color: whitesmoke;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: rgb(0, 0, 99);
+  }
